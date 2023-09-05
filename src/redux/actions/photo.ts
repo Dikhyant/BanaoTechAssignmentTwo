@@ -9,9 +9,13 @@ export interface IPhotos extends IAction {
     photos: IPhotoFromStore[]
 }
 
-export const addRecentPhotos = (data: IPhotoFromStore[]):IPhotos => {
+type addRecentPhotosProp = {
+    photos: IPhotoFromStore[]
+}
+
+export const addRecentPhotos = (data: addRecentPhotosProp):IPhotos => {
     return ({
         type: ADD_RECENT_PHOTO,
-        photos: data
+        photos: data.photos
     })
 }

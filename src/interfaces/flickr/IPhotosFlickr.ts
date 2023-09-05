@@ -1,10 +1,14 @@
 export interface IPhotosFlickr {
+    photos: IPhotos;
+    stat: string;
+}
+
+export interface IPhotos {
     page: number;
     pages: number;
     perpage: number;
     photo: IPhoto[];
     total: number;
-    stat: string;
 }
 
 export interface IPhoto {

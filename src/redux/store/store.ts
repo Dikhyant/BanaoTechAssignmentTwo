@@ -8,6 +8,7 @@ export interface IStore {
 }
 
 export interface IPhoto {
+    id: string,
     url: string
 }
 
