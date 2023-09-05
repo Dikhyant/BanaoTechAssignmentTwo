@@ -1,0 +1,1 @@
+export const ADD_RECENT_PHOTO = "ADD_RECENT_PHOTO"
