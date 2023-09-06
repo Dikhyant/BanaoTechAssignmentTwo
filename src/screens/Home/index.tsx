@@ -26,13 +26,14 @@ import ContentUnavailable from "../../components/common/ContentUnavailable";
 const Home:FC = () => {
     const dispatch = useDispatch()
     const store: IStore = useSelector((state: RootState) => state.reducer)
-    const fetchRecentImageAfter: number = 5000; // fetch images after given milliseconds
+    const fetchRecentImageAfter: number = 7000; // fetch images after given milliseconds
 
     useEffect(() => {
         const unsubscribe = NetInfo.addEventListener(state => {
             let timer: NodeJS.Timeout
             if(state.isConnected) {
                 // if device is connected to a network
+                fetchRecentPhotosAndLoadIntoStore({ dispatch, onFailure: error => {loadPhotosFromCacheIntoStore({dispatch: dispatch})}})
                 timer = setInterval(() => {
                     fetchRecentPhotosAndLoadIntoStore({
                         dispatch,
